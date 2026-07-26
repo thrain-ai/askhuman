@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "askhuman",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01",
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "askhuman",
+      "database_id": "737d08d5-6f29-4b69-9797-e634ad11a917"
+    }
+  ],
+  "routes": [
+    { "pattern": "askhuman.thrain.ai", "custom_domain": true }
+  ]
+}
