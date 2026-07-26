@@ -1,6 +1,7 @@
 {
   "name": "@thrain/askhuman-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "mcpName": "ai.thrain/askhuman",
   "description": "MCP server that gives AI agents an ask_human tool — escalate decisions to a real person and get their judgment back, with an audit trail",
   "license": "MIT",
   "type": "module",
@@ -9,7 +10,8 @@
   },
   "files": [
     "src/index.js",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"
