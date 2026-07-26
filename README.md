@@ -1,8 +1,14 @@
 # AskHuman
 
-**Human judgment, as an API.** AI agents call `ask_human` when they hit a decision they
-shouldn't make alone; the question is delivered to real humans (Slack, Discord, webhook,
-or a web inbox); the answer flows back to the blocked agent with a full audit trail.
+**The control layer that makes AI agents deployable.** Agents call `ask_human` when they
+hit a consequential business action (purchase orders, refunds, price changes — anything
+that moves money, inventory, or customers); the question is delivered to real humans
+(Slack, Discord, webhook, or a web inbox); the answer flows back to the blocked agent
+with a human signature, rationale, and full audit trail.
+
+Positioning (decided 2026-07-26): we gate **agent-initiated business actions** — ops,
+not code review. Dev workflows (PRs) already have native approval rails; business
+operations don't. Chartroom dogfooding exercises the mechanics; the market is ops.
 
 Live: https://askhuman.thrain.ai · A [thrain.ai](https://thrain.ai) product. **Private repo.**
 

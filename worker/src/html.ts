@@ -52,41 +52,47 @@ const brand = `<div class="brand"><span class="t"></span> AskHuman <span class="
 
 export function landingPage(): string {
   return shell(
-    'AskHuman — human judgment as an API',
+    'AskHuman — the control layer that makes AI agents deployable',
     `${brand}
-<h1>Human judgment, <span style="color:var(--rust)">as an API.</span></h1>
-<p class="dim">AI agents are fast, confident, and occasionally wrong. AskHuman gives your agents a way to stop and ask a person — approval, choice, taste, sign-off — and get an answer they can act on. With an audit trail.</p>
+<h1>The control layer that makes AI agents <span style="color:var(--rust)">deployable.</span></h1>
+<p class="dim">Your agents could reorder stock, issue refunds, and reprice listings today. What's stopping you isn't capability — it's accountability. AskHuman gates every consequential agent action behind real human sign-off: delivered to your team's phones, answered in one tap, logged forever.</p>
 
 <div class="steps">
-  <div class="step"><b>1 · Agent asks</b><br>Your agent calls the <code>ask_human</code> tool (MCP) or one HTTP endpoint when it hits a decision it shouldn't make alone.</div>
-  <div class="step"><b>2 · Your people get pinged</b><br>The question lands in Slack, Discord, or any webhook, with a one-tap answer link. No new app to install.</div>
-  <div class="step"><b>3 · The answer flows back</b><br>The blocked agent gets the decision and continues. Every ask, answer, and who-answered is logged.</div>
+  <div class="step"><b>1 · The agent proposes</b><br>When an agent hits an action that moves money, inventory, or customers, it calls <code>ask_human</code> instead of acting alone. One HTTP call, or the MCP tool.</div>
+  <div class="step"><b>2 · Your people decide</b><br>The decision lands in Slack, Discord, or any webhook as a one-tap answer link that works on any phone. No new app, no login, no training.</div>
+  <div class="step"><b>3 · The action proceeds — signed</b><br>The agent gets the decision and acts on it. Every agent-initiated action now carries a human signature, a rationale, and a timestamp.</div>
 </div>
 
-<h2>What it looks like</h2>
+<h2>What it looks like in your ops</h2>
 <pre><code>POST /v1/asks
 {
-  "question": "Refund order #4821 for $214?",
-  "type": "approve",
-  "sla_seconds": 900
+  "question": "Branch 12 stocks out of SKU-4471 in ~6 days.
+               Order 400 units from Meridian Supply ($8,460)?",
+  "type": "choose",
+  "options": ["Order 400", "Order 200 (conservative)", "Skip — seasonal dip"],
+  "sla_seconds": 14400
 }
 
-→ { "id": "ask_7f3a…", "status": "pending" }
-→ (human taps Approve in Slack)
-→ { "status": "answered", "answer": { "decision": "approve" } }</code></pre>
-<p class="dim">Or drop the MCP server into Claude Code / any MCP client and your agents get an <code>ask_human</code> tool for free.</p>
+→ (your ops lead taps "Order 400" from their phone)
+→ { "status": "answered",
+    "answer": { "choice": "Order 400", "rationale": "velocity is real, not promo-driven" },
+    "answered_by": "D. Alvarez" }</code></pre>
+<p class="dim">Purchase orders. Refunds and credits. Price changes. Customer-facing messages. Vendor actions. Production config. If an agent shouldn't do it unsupervised, it goes through AskHuman.</p>
+
+<h2>The deployability gap</h2>
+<p class="dim">Every company has agent pilots. Almost none have agents in production touching money — because the blocker was never the model, it's that nobody will sign off on unsupervised spend. AskHuman is the missing sign-off. It turns "too risky to deploy" into "approved, audited, shipped" — and it means the day an auditor asks <i>"which of these actions did a human approve?"</i>, the answer is a query, not an investigation.</p>
 
 <h2>Who it's for</h2>
-<p class="dim">Teams running agents that touch production, money, or customers — and anyone who wants "a human signed off on every consequential action" to be a queryable fact, not a hope.</p>
+<p class="dim">Ops, finance, and platform teams putting agents to work on real business processes — and the leaders who have to answer for what those agents do. Human oversight of automated decisions is becoming a requirement, not a preference. Be able to prove yours.</p>
 
 <h2>Early access</h2>
-<p class="dim">We're onboarding founding teams by hand. Flat founding price, locked in.</p>
+<p class="dim">We onboard founding teams by hand. Flat founding price, locked in for as long as you're a customer.</p>
 <div class="card">
   <form method="POST" action="/waitlist">
     <label for="email">Work email</label>
     <input type="email" id="email" name="email" required placeholder="you@company.com">
-    <label for="note">What are your agents doing? (optional)</label>
-    <input type="text" id="note" name="note" placeholder="e.g. support refunds, deploy approvals">
+    <label for="note">What do your agents need permission to do? (optional)</label>
+    <input type="text" id="note" name="note" placeholder="e.g. inventory reorders, refunds, price changes">
     <div class="row"><button class="btn" type="submit">Request access</button></div>
   </form>
 </div>
