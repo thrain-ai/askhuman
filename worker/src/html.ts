@@ -85,8 +85,8 @@ export function landingPage(): string {
 <h2>Who it's for</h2>
 <p class="dim">Ops, finance, and platform teams putting agents to work on real business processes — and the leaders who have to answer for what those agents do. Human oversight of automated decisions is becoming a requirement, not a preference. Be able to prove yours.</p>
 
-<h2>Early access</h2>
-<p class="dim">We onboard founding teams by hand. Flat founding price, locked in for as long as you're a customer.</p>
+<h2>Early access — free</h2>
+<p class="dim">AskHuman is <b>free</b>: MIT-licensed (<a href="https://github.com/thrain-ai/askhuman">source on GitHub</a>) with a hosted API and MCP server. We onboard teams by hand while in early access.</p>
 <div class="card">
   <form method="POST" action="/waitlist">
     <label for="email">Work email</label>
