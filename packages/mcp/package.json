@@ -1,12 +1,33 @@
 {
   "name": "@thrain/askhuman-mcp",
   "version": "0.1.0",
-  "description": "MCP server that gives AI agents an ask_human tool backed by the AskHuman API",
-  "private": true,
+  "description": "MCP server that gives AI agents an ask_human tool — escalate decisions to a real person and get their judgment back, with an audit trail",
+  "license": "MIT",
   "type": "module",
   "bin": {
     "askhuman-mcp": "src/index.js"
   },
+  "files": [
+    "src/index.js",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thrain-ai/askhuman.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://askhuman.thrain.ai",
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "human-in-the-loop",
+    "ai-agents",
+    "approvals",
+    "escalation"
+  ],
   "engines": {
     "node": ">=18"
   },

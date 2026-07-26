@@ -10,7 +10,9 @@ Positioning (decided 2026-07-26): we gate **agent-initiated business actions** �
 not code review. Dev workflows (PRs) already have native approval rails; business
 operations don't. Chartroom dogfooding exercises the mechanics; the market is ops.
 
-Live: https://askhuman.thrain.ai · A [thrain.ai](https://thrain.ai) product. **Private repo.**
+Live: https://askhuman.thrain.ai · A [thrain.ai](https://thrain.ai) product. **MIT licensed, free to use.**
+
+MCP server: `npx -y @thrain/askhuman-mcp` (see [packages/mcp](packages/mcp)).
 
 ## Phase roadmap
 
